@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínicas Médicas</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      font-weight: bold; /* Adição para tornar todas as letras em negrito */
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      text-align: center;
+      margin: 0%;
+      padding: 0%;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      justify-content: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .card {
+      width: 250px;
+      height: 150px;
+      margin: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .consultorio {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    .triagem {
+      background-color: #e74c3c;
+      color: #fff;
+    }
+
+    .ecografia {
+      background-color: #2ecc71;
+      color: #fff;
+    }
+
+    .procedimentos {
+      background-color: #f39c12;
+      color: #fff;
+    }
+
+    .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Adição para ocupar 100% da altura do card */
+    box-sizing: border-box; /* Adição para incluir padding na altura total */
+    padding: 20px;
+    }
+
+
+    h2 {
+      margin: 0;
+    }
+
+    /* Estilo para tornar o link sem decoração e com a cor branca */
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    
+  </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Link adicionado ao card -->
+        <a href="consultorios/cons1.php" class="card consultorio">
+          <div class="card-content">
+            <h2>Consultório 1</h2>
+          </div>
+        </a>
+
+        <a href="consultorios/cons2.php" class="card consultorio">
+            <div class="card-content">
+              <h2>Consultório 2</h2>
+            </div>
+          </a>
+
+
+
+          <a href="consultorios/cons3.php" class="card consultorio">
+            <div class="card-content">
+              <h2>Consultório 3</h2>
+            </div>
+          </a>
+
+          <a href="consultorios/cons4.php" class="card consultorio">
+            <div class="card-content">
+              <h2>Consultório 4</h2>
+            </div>
+          </a>
+
+          <a href="consultorios/cons5.php" class="card consultorio">
+            <div class="card-content">
+              <h2>Consultório 5</h2>
+            </div>
+          </a>
+
+          <a href="consultorios/cons6.php" class="card consultorio">
+            <div class="card-content">
+              <h2>Consultório 6</h2>
+            </div>
+          </a>
+
+          <a href="consultorios/cons7.php" class="card consultorio">
+            <div class="card-content">
+              <h2>Consultório 7</h2>
+            </div>
+          </a>
+
+          <a href="consultorios/cons8.php" class="card consultorio">
+            <div class="card-content">
+              <h2>Consultório 8</h2>
+            </div>
+          </a>
+
+
+          <a href="triagens/triag1.php" class="card triagem">
+            <div class="card-content">
+              <h2>Triagem 1</h2>
+            </div>
+          </a>
+
+          <a href="triagens/triag2.php" class="card triagem">
+            <div class="card-content">
+              <h2>Triagem 2</h2>
+            </div>
+          </a>
+
+          <a href="ecografias/eco1.php" class="card ecografia">
+            <div class="card-content">
+              <h2>Ecografia 1</h2>
+            </div>
+          </a>
+
+          <a href="ecografias/eco2.php" class="card ecografia">
+            <div class="card-content">
+              <h2>Ecografia 2</h2>
+            </div>
+          </a>
+
+          <a href="ecografias/eco3.php" class="card ecografia">
+            <div class="card-content">
+              <h2>Ecografia 3</h2>
+            </div>
+          </a>
+
+          <a href="procedimentos/proced1.php" class="card procedimentos">
+            <div class="card-content">
+              <h2>Procedimentos 1</h2>
+            </div>
+          </a>
+
+          <a href="procedimentos/proced2.php" class="card procedimentos">
+            <div class="card-content">
+              <h2>Procedimentos 2</h2>
+            </div>
+          </a>
+
+          <a href="procedimentos/proced3.php" class="card procedimentos">
+            <div class="card-content">
+              <h2>Procedimentos 3</h2>
+            </div>
+          </a>
+</div>
+
+</body>
+</html>

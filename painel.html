@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Senhas</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      font-weight: bold; /* Adição para tornar todas as letras em negrito */
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      text-align: center;
+      margin: 0%;
+      padding: 0%;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      justify-content: center;
+    }
+
+    .section {
+      width: calc(50% - 1%);
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+      height: 60vh;
+      
+    }
+
+    .chamada h2,
+    .chamada .categoria,
+    .chamada .guiche {
+      margin: 0;
+      padding: 0;
+    }
+
+
+  #pacientes, #videoContainer, #chamadas1 {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+  .paciente-card, .chamada {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2%;
+  padding: 3%;
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  height: 90%;
+  font-size: large;
+}
+
+
+
+    #videoContainer {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 90%;
+      width: 100%;
+
+    }
+
+    #videoFrame {
+      width: 100%; 
+      border-radius: 10px;
+      height: 100%;
+
+    }
+
+    .chamada {
+      background-color: #3498db;
+      height: 90%;
+      font-size: large;
+    }
+
+    .historico {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap; /* Alteração para permitir que as divs filhas quebrem a linha */
+      justify-content: center; /* Centraliza as divs filhas */
+      text-align: center;
+      font-size: large;
+
+    }
+
+    .historico > div {
+      flex: 1;
+      margin: 1%; /* Espaçamento entre as divs filhas */
+      box-sizing: border-box;
+    }
+
+    .historico .paciente-card,
+    .historico .chamada {
+      width: 100%; /* Garante que todas as divs filhas tenham a mesma largura */
+      color: #ecf0f1;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+
+    .pacientes,
+    .chamadas1
+     {
+    width: calc(50% - 2%);
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    
+  }
+
+  @media only screen and (max-width: 600px) {
+    .section,
+    .pacientes,
+    .chamadas1 {
+      width: calc(100% - 2%);
+    }
+  }
+
+
+  .fade-in {
+    animation: fadeIn 5s ease-in-out 1;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Adicionado para centralizar horizontalmente */
+    z-index: 2;
+    font-size: 5rem;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 1;
+        animation-timing-function: ease-in;
+    }
+
+    to {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+  </style>
+</head>
+<body>
+
+<!-- aqui começa os card's de paciente, o qual exibe o ultimo chamado -->
+<div class="section adjustable-div">
+  <h2 style="text-align: center; color: #ecf0f1;">Último Paciente Chamado</h2>
+  <div id="pacientes">
+    <div class="paciente-card">
+      <!-- Conteúdo da div paciente-card -->
+    </div>
+  </div>
+  <!-- aqui começa os card's de SENHA, o qual exibe o ultimo chamado -->
+  <h2 style="text-align: center; color: #ecf0f1;">Última Senha Chamada</h2>
+  <div id="chamadas1">
+    <div class="chamada">
+            <!-- Conteúdo da div chamada referente as senhas comum e preferencial -->
+    </div>
+  </div>
+  <!-- aqui termina os card's de SENHAS, o qual exibe o ultimo chamado -->
+
+</div>
+
+
+
+<!-- aqui termina os card's de paciente, o qual exibe o ultimo chamado -->
+
+<!-- aqui começa o video central da pagina, voltado para o marketing da empresa -->
+<div class="section adjustable-div">
+  <div id="videoContainer">
+    <iframe id="videoFrame" src="https://www.youtube.com/embed/jgkgfvXrCLc?autoplay=1&cc_load_policy=1" title="Marq Saúde!"></iframe>
+  </div>
+</div>
+<!-- aqui termina o video central da pagina, voltado para o marketing da empresa -->
+
+
+
+<!-- aqui começa os card's de HISTORICO, o qual ignora o primeiro de cada lado e mostra de forma misturada os 5 primeiros restantes -->
+<div class="historico">
+</div>
+<!-- aqui termina os card's de HISTORICO, o qual ignora o primeiro de cada lado e mostra de forma misturada os 5 primeiros restantes -->
+
+<!-- aqui começa os card's de Fade-in, está invisivel e só aparece com uma informação nova é adicionada no banco de dados-->
+<div class="ultima-fade-in">
+</div>
+<!-- aqui termina os card's de Fade-in, está invisivel e só aparece com uma informação nova é adicionada no banco de dados-->
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var videoFrame = document.getElementById("videoFrame");
+    videoFrame.src = videoFrame.src + "&autoplay=1&cc_load_policy=1";
+
+    var pacientes = document.getElementById("pacientes");
+    var chamadas1 = document.getElementById("chamadas1");
+    var videoContainer = document.getElementById("videoFrame");
+    var adjustableDiv = document.querySelector(".section.adjustable-div");
+
+    var pacientesHeight = pacientes.offsetHeight;
+    var chamadasHeight = chamadas1.offsetHeight;
+    var maxHeight = Math.max(pacientesHeight, chamadasHeight);
+
+    // Calculate 90% of the height of the adjustableDiv
+    var targetHeight = adjustableDiv.offsetHeight * 0.8;
+
+    // Set the height of the videoContainer to the calculated value
+    videoContainer.style.height = targetHeight + "px";
+
+    // Calculate the remaining height for pacientes and chamadas1
+    var remainingHeight = targetHeight - maxHeight;
+
+    // Set the height of pacientes and chamadas1
+    pacientes.style.height = (remainingHeight / 2) + "px";
+    chamadas1.style.height = (remainingHeight / 2) + "px";
+  });
+</script>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Função para carregar os dados do banco de dados
+    function carregarDados() {
+      $.ajax({
+        url: 'consulta.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          // Filtra os dados para incluir apenas os do tipo 'paciente'
+          var pacientes = data.filter(function (item) {
+            return item.tipo === 'Paciente';
+          });
+
+          // Ordena os dados por data de forma decrescente
+          pacientes.sort(function (a, b) {
+            return new Date(b.data) - new Date(a.data);
+          });
+
+          // Pega apenas os 4 primeiros itens
+          var ultimos4Pacientes = pacientes.slice(0, 1);
+
+          // Preenche os cards com os dados do banco de dados
+          preencherCards(ultimos4Pacientes);
+        },
+        error: function () {
+          console.error('Erro ao carregar os dados do banco de dados.');
+        }
+      });
+    }
+
+    // Função para preencher os cards com os dados do banco de dados
+    function preencherCards(data) {
+      var pacientesDiv = $('#pacientes');
+      pacientesDiv.empty(); // Limpa o conteúdo atual
+
+      // Itera sobre os dados e cria os cards
+      $.each(data, function (index, item) {
+        var pacienteCard = $('<div>').addClass('paciente-card');
+        pacienteCard.append('<strong></strong> ' + item.nome + '<br>');
+        pacienteCard.append('<strong></strong> ' + item.local);
+        pacientesDiv.append(pacienteCard);
+      });
+
+
+    }
+
+    // Chama a função para carregar os dados ao carregar a página
+    carregarDados();
+
+        // Define o intervalo para chamar a função carregarDados a cada 4 segundos
+        setInterval(carregarDados, 4000);
+  });
+</script>
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Função para carregar os dados do banco de dados
+    function carregarSenhas() {
+      $.ajax({
+        url: 'consulta.php', 
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          // Filtra os dados para incluir apenas senhas comuns e preferenciais
+          var senhas = data.filter(function (item) {
+            return item.tipo === 'Senha Comum' || item.tipo === 'Senha Preferencial';
+          });
+
+          // Ordena os dados por data de forma decrescente
+          senhas.sort(function (a, b) {
+            return new Date(b.datahora) - new Date(a.datahora);
+          });
+
+          // Pega apenas a última senhas
+          var ultimas1Senhas = senhas.slice(0, 1);
+
+          preencherSenhas(ultimas1Senhas);
+        },
+        error: function () {
+          console.error('Erro ao carregar os dados do banco de dados.');
+        }
+      });
+    }
+
+    // Função para preencher os cards com os dados do banco de dados
+    function preencherSenhas(data) {
+      var chamadasDiv = $('#chamadas1');
+      chamadasDiv.empty(); // Limpa o conteúdo atual
+
+      // Itera sobre os dados e cria os cards
+      $.each(data, function (index, item) {
+        var chamadaCard = $('<div>').addClass('chamada');
+        chamadaCard.append('<span>' + item.tipo + '</span><br>');
+        chamadaCard.append('<span>' + item.nome + '</span><br>');
+        chamadaCard.append('<span>' + item.local + '</span><br>');
+        chamadasDiv.append(chamadaCard);
+      });
+    }
+
+    // Chama a função para carregar os dados ao carregar a página
+    carregarSenhas();
+
+            // Define o intervalo para chamar a função carregarDados a cada 4 segundos
+            setInterval(carregarDados, 4000);
+  });
+
+  
+</script>
+
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Função para carregar os dados do banco de dados
+    function carregarDados() {
+      $.ajax({
+        url: 'consulta.php', // Substitua 'consulta.php' pelo URL real do seu arquivo de consulta
+        type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          // Filtra os dados para incluir apenas os do tipo 'paciente'
+          var pacientes = data.filter(function (item) {
+            return item.tipo === 'Paciente';
+          });
+
+          // Filtra os dados para incluir apenas senhas comuns e preferenciais
+          var senhas = data.filter(function (item) {
+            return item.tipo === 'Senha Comum' || item.tipo === 'Senha Preferencial';
+          });
+
+          // Ordena os dados por data de forma decrescente
+          pacientes.sort(function (a, b) {
+            return new Date(b.data) - new Date(a.data);
+          });
+
+          senhas.sort(function (a, b) {
+            return new Date(b.datahora) - new Date(a.datahora);
+          });
+
+          // Pega apenas os 4 primeiros itens de 'paciente-card' e 'chamadas1'
+          var ultimosPacientes = pacientes.slice(0, 1);
+          var ultimasSenhas = senhas.slice(0, 1);
+
+          // Preenche os cards com os dados 'paciente-card' e 'chamadas1'
+          preencherCards(ultimosPacientes, 'pacientes');
+          preencherCards(ultimasSenhas, 'chamadas1');
+
+          // Pega o restante dos dados, excluindo os 8 itens já exibidos
+          var restanteDados = data.filter(function (item) {
+            return !ultimosPacientes.includes(item) && !ultimasSenhas.includes(item);
+          });
+
+          // Ordena o restante dos dados por data de forma crescente
+          restanteDados.sort(function (a, b) {
+            return new Date(a.data || a.datahora) - new Date(b.data || b.datahora);
+          });
+
+          // Preenche os cards com os 5 primeiros do restante dos dados
+          preencherRestanteDados(restanteDados.slice(0, 5));
+        },
+        error: function () {
+          console.error('Erro ao carregar os dados do banco de dados.');
+        }
+      });
+    }
+
+    // Função para preencher os cards com os dados do banco de dados
+    function preencherCards(data, containerId) {
+      var container = $('#' + containerId);
+      container.empty(); // Limpa o conteúdo atual
+
+      // Itera sobre os dados e cria os cards
+      $.each(data, function (index, item) {
+        var card = $('<div>').addClass(containerId === 'pacientes' ? 'paciente-card' : 'chamada');
+        if (containerId === 'pacientes') {
+          card.append('<strong></strong> ' + item.nome + '<br>');
+          card.append('<strong></strong> ' + item.local);
+        } else {
+          card.append('<span>' + item.tipo + '</span><br>');
+          card.append('<span>' + item.nome + '</span><br>');
+          card.append('<span>' + item.local + '</span><br>');
+        }
+        container.append(card);
+      });
+    }
+
+    // Função para preencher o restante dos dados
+    function preencherRestanteDados(data) {
+      var historicoDiv = $('.historico');
+      historicoDiv.empty(); // Limpa o conteúdo atual
+
+      // Itera sobre os dados restantes e cria os cards
+      $.each(data, function (index, item) {
+        var card = $('<div>');
+
+        if (item.tipo === 'Paciente') {
+          card.addClass('paciente-card');
+          card.append('<strong></strong> ' + item.nome + '<br>');
+          card.append('<strong></strong> ' + item.local);
+        } else {
+          card.addClass('chamada');
+          card.append('<span>' + item.tipo + '</span><br>');
+          card.append('<span>' + item.nome + '</span><br>');
+          card.append('<span>' + item.local + '</span><br>');
+        }
+
+        historicoDiv.append(card);
+
+        // Verifica se já foram exibidos 5 itens
+        if (index >= 4) {
+          return false; // Encerra o loop após 5 itens
+        }
+      });
+    }
+
+    // Chama a função para carregar os dados ao carregar a página
+    carregarDados();
+            // Define o intervalo para chamar a função carregarDados a cada 4 segundos
+            setInterval(carregarDados, 4000);
+  });
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Variável para armazenar os dados mais recentes
+  var ultimaLinhaAtual = null;
+
+  // Função para carregar os dados do banco de dados referentes à última linha com timeout
+  function carregarUltimaLinha() {
+    $.ajax({
+      url: 'consulta.php', // Substitua 'consulta_timeout.php' pelo URL real do seu arquivo de consulta para timeouts
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        // Verifica se há dados disponíveis
+        if (data.length > 0) {
+          // Ordena os dados por datahora de forma decrescente
+          data.sort(function (a, b) {
+            return new Date(b.datahora) - new Date(a.datahora);
+          });
+
+          // Pega a última linha com timeout mais recente
+          var ultimaLinha = data[0];
+
+          // Verifica se os dados são diferentes dos dados atuais antes de atualizar
+          if (!saoIguais(ultimaLinha, ultimaLinhaAtual)) {
+            // Preenche a div 'ultima-fade-in' com os dados do banco de dados
+            preencherUltimaLinha(ultimaLinha);
+
+            // Obtém as classes de estilo do card
+            var cardClasses = getCardClasses(ultimaLinha);
+
+            // Adiciona as classes à div 'ultima-fade-in'
+            $('.ultima-fade-in').attr('class', 'ultima-fade-in ' + cardClasses);
+
+            // Executa a animação de fade-in
+            var ultimaFadeInDiv = $('.ultima-fade-in');
+            ultimaFadeInDiv.addClass('fade-in');
+
+            // Chama a função playVoice
+            playVoice(getTextToRead(ultimaLinha));
+
+            setTimeout(function () {
+              ultimaFadeInDiv.removeClass('fade-in');
+              ultimaFadeInDiv.addClass('hidden'); // Adiciona a classe 'hidden' após a animação
+            }, 5000); // Tempo da animação em milissegundos
+
+            // Atualiza a variável com os dados mais recentes
+            ultimaLinhaAtual = ultimaLinha;
+          }
+        } else {
+          // Se não houver dados, pode esconder a div ou mostrar uma mensagem indicando a ausência de dados
+          $('.ultima-fade-in').addClass('hidden');
+        }
+      },
+      error: function () {
+        console.error('Erro ao carregar os dados do banco de dados.');
+      }
+    });
+  }
+
+  // Função para verificar se dois objetos são iguais
+  function saoIguais(obj1, obj2) {
+    return JSON.stringify(obj1) === JSON.stringify(obj2);
+  }
+
+  // Função para obter as classes de estilo do card
+  function getCardClasses(data) {
+    var classes = '';
+
+    // Adapte este trecho de acordo com a estrutura do seu objeto de dados
+    if (data.tipo === 'Paciente') {
+      classes = 'paciente-card';
+    } else if (data.tipo === 'Senha Comum' || data.tipo === 'Senha Preferencial') {
+      classes = 'chamada';
+    }
+
+    return classes;
+  }
+
+  // Função para preencher a div 'ultima-fade-in' com os dados do banco de dados
+  function preencherUltimaLinha(data) {
+    var ultimaFadeInDiv = $('.ultima-fade-in');
+    ultimaFadeInDiv.empty(); // Limpa o conteúdo atual
+
+    // Cria os elementos com os dados da última linha
+    var linhaElement = $('<div>').addClass('linha');
+    linhaElement.append('<span>' + data.tipo + '</span><br>');
+    linhaElement.append('<span>' + data.nome + '</span><br>');
+    linhaElement.append('<span>' + data.local + '</span><br>');
+
+    // Adiciona a linha à div 'ultima-fade-in'
+    ultimaFadeInDiv.append(linhaElement);
+
+    // Remove a classe 'hidden' para tornar a div visível
+    ultimaFadeInDiv.removeClass('hidden');
+
+    // Executa a animação de fade-in apenas se houver uma nova informação
+    if (ultimaLinhaAtual !== null) {
+      // Obtém as classes de estilo do card
+      var cardClasses = getCardClasses(data);
+
+      // Adiciona as classes à div 'ultima-fade-in'
+      ultimaFadeInDiv.attr('class', 'ultima-fade-in ' + cardClasses);
+
+      // Executa a animação de fade-in
+      ultimaFadeInDiv.addClass('fade-in');
+      setTimeout(function () {
+        ultimaFadeInDiv.removeClass('fade-in');
+        ultimaFadeInDiv.addClass('hidden'); // Adiciona a classe 'hidden' após a animação
+      }, 5000); // Tempo da animação em milissegundos
+    }
+
+    // Atualiza a variável com os dados mais recentes
+    ultimaLinhaAtual = data;
+  }
+
+  // Função para obter o texto a ser lido em voz alta
+  function getTextToRead(data) {
+    var texto = '';
+
+    // Adapte este trecho de acordo com a estrutura do seu objeto de dados
+    if (data.tipo === 'Paciente') {
+      texto = 'Atenção ' + data.tipo + '\n' +
+        ' ' + data.nome + '\n' +
+        ' Compareça por gentileza ' + data.local;
+    } else if (data.tipo === 'Senha Comum' || data.tipo === 'Senha Preferencial') {
+      texto = 'Atenção ' + data.tipo + '\n' +
+        ' ' + data.nome + '\n' +
+        ' Compareça por gentileza ' + data.local;
+    }
+
+    return texto;
+  }
+
+  // Função para reproduzir a voz
+  function playVoice(text) {
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+  }
+
+  // Chama a função para carregar a última linha ao carregar a página
+  carregarUltimaLinha();
+
+  // Define o intervalo para chamar a função carregarUltimaLinha a cada 4 segundos
+  setInterval(carregarUltimaLinha, 4000);
+});
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
