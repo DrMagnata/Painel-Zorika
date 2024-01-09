@@ -1,0 +1,42 @@
+    /* Estilo personalizado para as senhas preferencial e comum */
+    .senha-button {
+        margin-top: 20px;
+      }
+  
+      body {
+        background-color: black; /* Cor de fundo geral */
+        color: white; /* Cor do texto geral */
+      }
+  
+      #gerar-senha {
+        text-align: center;
+        margin-top: 40px;
+      }
+  
+      /* Estilo para centralizar o texto nas divs button */
+      .button-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%; /* Adiciona altura de 100% para centralizar verticalmente */
+      }
+  
+      .container {
+        height: 100vh; /* Adiciona altura de 100% da viewport para centralizar verticalmente */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+  
+      h2 {
+        font-size: xx-large;
+      }
+      /* Estilo para impressão */
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        #informacoes-banco, #senha-gerada {
+          visibility: visible;
+        }
+      }

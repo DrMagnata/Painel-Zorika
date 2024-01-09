@@ -1,0 +1,26 @@
+@media print {
+    /* Estilos para a impressão */
+    body {
+      font-family: Arial, sans-serif;
+      color: black; /* Cor do texto para a impressão */
+      background-color: white; /* Cor de fundo para a impressão */
+      font-size: xx-large;
+      margin: 0; /* Remove margens padrão */
+      padding: 0; /* Adiciona algum espaço interno */
+      text-align: center;
+    }
+
+    @page {
+      margin: 0; /* Remove margens padrão da página */
+    }
+
+    /* Mostra as informações do banco de dados apenas na impressão */
+    .informacoes-print {
+      display: block !important;
+    }
+  }
+
+  /* Oculta as informações do banco de dados na visualização padrão da página web */
+  .informacoes-print {
+    display: none;
+  }

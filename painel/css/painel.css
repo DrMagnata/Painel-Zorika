@@ -1,0 +1,163 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold; /* Adição para tornar todas as letras em negrito */
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  .section {
+    width: calc(50% - 1%);
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    height: 60vh;
+    
+  }
+
+  .chamada h2,
+  .chamada .categoria,
+  .chamada .guiche {
+    margin: 0;
+    padding: 0;
+  }
+
+
+#pacientes, #videoContainer, #chamadas1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+.paciente-card, .chamada {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 2%;
+padding: 3%;
+background-color: #2ecc71;
+color: #ecf0f1;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease-in-out;
+text-align: center;
+height: 90%;
+font-size: large;
+}
+
+
+
+  #videoContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+
+  }
+
+  #videoFrame {
+    width: 100%; 
+    border-radius: 10px;
+    height: 100%;
+
+  }
+
+  .chamada {
+    background-color: #3498db;
+    height: 90%;
+    font-size: large;
+  }
+
+  .historico {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Alteração para permitir que as divs filhas quebrem a linha */
+    justify-content: center; /* Centraliza as divs filhas */
+    text-align: center;
+    font-size: large;
+
+  }
+
+  .historico > div {
+    flex: 1;
+    margin: 1%; /* Espaçamento entre as divs filhas */
+    box-sizing: border-box;
+  }
+
+  .historico .paciente-card,
+  .historico .chamada {
+    width: 100%; /* Garante que todas as divs filhas tenham a mesma largura */
+    color: #ecf0f1;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .pacientes,
+  .chamadas1
+   {
+  width: calc(50% - 2%);
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  
+}
+
+@media only screen and (max-width: 600px) {
+  .section,
+  .pacientes,
+  .chamadas1 {
+    width: calc(100% - 2%);
+  }
+}
+
+
+.fade-in {
+  animation: fadeIn 5s ease-in-out 1;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Adicionado para centralizar horizontalmente */
+  z-index: 2;
+  font-size: 5rem;
+}
+
+
+@keyframes fadeIn {
+  from {
+      opacity: 1;
+      animation-timing-function: ease-in;
+  }
+
+  to {
+      opacity: 1;
+      animation-timing-function: ease-out;
+  }
+}
+
+.hidden {
+  display: none;
+}
