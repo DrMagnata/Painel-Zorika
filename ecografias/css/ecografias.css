@@ -1,0 +1,71 @@
+body {
+    background-color: rgb(48, 48, 48);
+  }
+
+  .cabecao {
+    background-color: rgb(66, 66, 66); /* Cor principal de fundo */
+    color: rgb(178, 178, 178); /* Cor do texto */
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+  }
+
+  /* Cor secundária para o formulário */
+  form {
+    background-color: rgb(66, 66, 66);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  /* Cor secundária para os labels */
+  label {
+    color: rgb(66, 66, 66);
+  }
+
+  /* Cor secundária para os inputs */
+  input,
+  label {
+    background-color: rgb(48, 48, 48);
+    color: rgb(178, 178, 178);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+  }
+
+  /* Estilo para o botão Enviar */
+  input[type="submit"] {
+    background-color: rgb(178, 178, 178);
+    color: rgb(48, 48, 48);
+    cursor: pointer;
+  }
+
+
+  .led {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(208deg, #bd1e27, blue, #bd1e27, blue, #bd1e27);
+  background-size: 1000% 1000%;
+  animation: RGB-BACKGROUD-LINEAR-GRADIENT 5s ease infinite;
+}
+
+@keyframes RGB-BACKGROUD-LINEAR-GRADIENT {
+  0% {
+    background-position: 96% 0%;
+    background-position-x: 96%;
+    background-position-y: 0%;
+  }
+  50% {
+    background-position: 5% 100%;
+    background-position-x: 5%;
+    background-position-y: 100%;
+  }
+  100% {
+    background-position: 96% 0%;
+    background-position-x: 96%;
+    background-position-y: 0%;
+  }
+}
+
+
