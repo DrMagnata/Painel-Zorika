@@ -21,11 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = htmlspecialchars($_POST['texto']);
     $local = htmlspecialchars($_POST['local']);
 
+    // Converter para caixa alta (maiúsculas)
+    $nome = mb_strtoupper($nome);
+
     // Verificar se o campo 'texto' está preenchido
     if (empty($nome)) {
-        echo "Por favor, preencha o campo 'Nome do Paciente'.";
-    } elseif ($local === '#') {
-        echo "Por Gentileza, Escolha Adequadamente o local.";
+        echo "";
+    } elseif ($local === '') {
+        echo "";
     } else {
         // Obter a data e hora atual no formato 'Y-m-d H:i:s'
         $datahora = date('Y-m-d H:i:s');
@@ -51,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             try {
                 $stmtAtualizar->execute();
-                echo "Dados atualizados com sucesso!";
+                echo "";
             } catch (PDOException $e) {
-                echo "Erro ao atualizar dados: " . $e->getMessage();
+                echo "" . $e->getMessage();
             }
         } else {
             // Paciente não existe, realizar a inserção

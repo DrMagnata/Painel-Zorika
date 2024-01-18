@@ -31,10 +31,32 @@
 
 <!-- aqui começa o video central da pagina, voltado para o marketing da empresa -->
 <div class="section adjustable-div">
-  <div id="videoContainer">
-    <iframe id="videoFrame" src="https://www.youtube.com/embed/jgkgfvXrCLc?autoplay=1&cc_load_policy=1" title="Marq Saúde!"></iframe>
+  <div id="videoFrame">
+    <video id="videoContainer"  autoplay>
+  <source src="videos/marq.mp4" type="video/mp4">
+</video>
   </div>
 </div>
+
+
+<script>
+var videoContainer = document.getElementById('videoContainer');
+var videos = ["videos/marq.mp4", "videos/endo.mp4", "videos/cbsb.mp4"];
+var currentVideo = 0;
+
+videoContainer.onended = function() {
+    currentVideo++;
+    if(currentVideo >= videos.length) {
+        currentVideo = 0; 
+    }
+    videoContainer.src = videos[currentVideo];
+    videoContainer.play();
+};
+</script>
+
+
+
+
 <!-- aqui termina o video central da pagina, voltado para o marketing da empresa -->
 
 <!-- aqui começa os card's de HISTORICO, o qual ignora o primeiro de cada lado e mostra de forma misturada os 5 primeiros restantes -->
@@ -47,7 +69,7 @@
 </div>
 <!-- aqui termina os card's de Fade-in, está invisivel e só aparece com uma informação nova é adicionada no banco de dados-->
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="js/jquery.js"></script>
 <script src="js/ult-paciente.js"></script>
 <script src="js/ult-senha.js"></script>
 <script src="js/historico.js"></script>

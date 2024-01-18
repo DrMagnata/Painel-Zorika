@@ -2,12 +2,46 @@ body {
     background-color: rgb(48, 48, 48);
   }
 
-  .cabecao {
-    background-color: rgb(66, 66, 66); /* Cor principal de fundo */
-    color: rgb(178, 178, 178); /* Cor do texto */
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 20px;
+/* Adicione estas regras no seu arquivo CSS */
+a, td {
+  font-size: larger;
+}
+.cabecao {
+  background-color: rgb(66, 66, 66);
+  color: rgb(178, 178, 178);
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px;
+
+}
+
+.mx-auto, .text-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+  .form-group {
+    margin-bottom: 1%; /* Adiciona uma margem entre grupos de formulários */
+  }
+  
+  label {
+    width: 10%; /* Faz com que o input ocupe 100% da largura da div */
+    display: block; /* Garante que o label ocupe toda a largura disponível */
+    margin-bottom: 1%; /* Adiciona uma pequena margem abaixo do label */
+    color: rgb(66, 66, 66); /* Cor do texto do label */
+  }
+  
+
+  input {
+    width: 100%; /* Faz com que o input ocupe 100% da largura da div */
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    background-color: rgb(48, 48, 48); /* Cor do fundo do input */
+    color: rgb(178, 178, 178); /* Cor do texto do input */
+    border: none;
+    border-radius: 5px;
   }
 
   /* Cor secundária para o formulário */
@@ -50,6 +84,88 @@ body {
   animation: RGB-BACKGROUD-LINEAR-GRADIENT 5s ease infinite;
 }
 
+/* Adicione estas regras no final do seu arquivo CSS */
+
+.custom-table {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center; 
+}
+
+.table-header,
+.table-dark tbody tr {
+  text-align: center; 
+}
+
+.table-header {
+  color: rgb(178, 178, 178);
+  background-color: rgb(66, 66, 66);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.table-dark tbody tr {
+  background-color: rgb(178, 178, 178); /* Alterado para a cor desejada */
+  color: rgb(48, 48, 48); /* Cor do texto nas linhas */
+}
+
+.table-dark tbody tr:nth-child(odd) {
+  background-color: rgb(178, 178, 178); /* Mantenha a mesma cor para linhas ímpares, se preferir */
+}
+
+.table-dark tbody tr:hover {
+  background-color: rgb(92, 92, 92);
+}
+
+
+
+/* Adicione estas regras no final do seu arquivo CSS */
+
+.btn-primary {
+  background-color: blue;
+  color: rgb(178, 178, 178);
+  border: none;
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #bd1e27;
+}
+
+.btn-danger {
+  background-color: blue;
+  color: rgb(178, 178, 178);
+  border: none;
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background-color: #a41820;
+}
+
+
+.btn-success.btn-sm {
+  background-color: #28a745; /* Cor de fundo para botões de sucesso */
+  color: #fff; /* Cor do texto nos botões de sucesso */
+  border: none;
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.btn-success.btn-sm:hover {
+  background-color: #a41820; /* Cor de fundo ao passar o mouse sobre os botões de sucesso */
+}
+
+
 @keyframes RGB-BACKGROUD-LINEAR-GRADIENT {
   0% {
     background-position: 96% 0%;
@@ -67,6 +183,3 @@ body {
     background-position-y: 0%;
   }
 }
-
-
-

@@ -134,8 +134,17 @@ document.addEventListener("DOMContentLoaded", function () {
     function playVoice(text) {
       var msg = new SpeechSynthesisUtterance();
       msg.text = text;
+  
+      // Pausa o vídeo antes de começar a falar
+      document.getElementById('videoContainer').pause();
+  
+      msg.onend = function () {
+          // Retoma o vídeo após a conclusão da leitura
+          document.getElementById('videoContainer').play();
+      };
+  
       window.speechSynthesis.speak(msg);
-    }
+  }
   
     // Chama a função para carregar a última linha ao carregar a página
     carregarUltimaLinha();

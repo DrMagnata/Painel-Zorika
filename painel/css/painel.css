@@ -62,7 +62,7 @@ font-size: large;
     align-items: center;
     height: 90%;
     width: 100%;
-
+    border-top: 1%;
   }
 
   #videoFrame {
